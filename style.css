@@ -26,81 +26,62 @@ nav a {
 
 /* --- ARBRE GÉNÉALOGIQUE MODULAIRE --- */
 
-.tree {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 80px; /* espace entre les générations */
+.tree ul {
+  padding-top: 20px; 
+  position: relative;
+  display: flex;
+  justify-content: center;
 }
 
-/* Unité familiale : parents + enfants */
-.family-unit {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.tree li {
+  list-style: none;
+  text-align: center;
+  position: relative;
+  padding: 20px 5px 0 5px;
 }
 
-/* Parents (couple) */
-.parents {
-    display: flex;
-    gap: 40px;
-    position: relative;
+/* Les traits de liaison */
+.tree li::before, .tree li::after {
+  content: '';
+  position: absolute; 
+  top: 0; 
+  right: 50%;
+  border-top: 2px solid #ccc;
+  width: 50%; 
+  height: 20px;
 }
 
-/* Enfants d’un couple */
-.children {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 25px;
-    position: relative;
+.tree li::after {
+  right: auto; 
+  left: 50%;
+  border-left: 2px solid #ccc;
 }
 
-/* Liste des enfants */
-.child-list {
-    display: flex;
-    gap: 40px;
-    margin-top: 20px;
+/* Enlever les traits pour les éléments uniques ou les racines */
+.tree li:only-child::after, .tree li:only-child::before {
+  display: none;
+}
+.tree li:only-child {
+  padding-top: 0;
+}
+.tree li:first-child::before, .tree li:last-child::after {
+  border: 0;
+}
+.tree li:last-child::before {
+  border-right: 2px solid #ccc;
+  border-radius: 0 5px 0 0;
+}
+.tree li:first-child::after {
+  border-radius: 5px 0 0 0;
 }
 
-/* Carte d’une personne */
-.person {
-    background: #ffffff;
-    border: 2px solid #002f6c;
-    padding: 12px 18px;
-    text-align: center;
-    border-radius: 6px;
-    min-width: 180px;
-}
-
-/* --- TRAITS --- */
-
-.line {
-    background: #002f6c;
-}
-
-/* Trait vertical descendant du couple */
-.vertical {
-    width: 4px;
-    height: 40px;
-    margin-top: 10px;
-}
-
-/* Trait horizontal reliant les enfants */
-.horizontal {
-    height: 4px;
-    width: 100%;
-    max-width: 400px;
-}
-
-/* --- ALIGNEMENT AUTOMATIQUE --- */
-
-/* Centre les enfants sous le couple */
-.children .child-list {
-    justify-content: center;
-}
-
-/* Permet d’ajouter plusieurs groupes d’enfants sans casser l’arbre */
-.children + .children {
-    margin-top: 40px;
+/* Style de la boîte de la personne */
+.tree .personne {
+  border: 2px solid #4caf50;
+  padding: 10px 15px;
+  display: inline-block;
+  border-radius: 8px;
+  background: white;
+  font-family: sans-serif;
+  font-size: 14px;
 }
