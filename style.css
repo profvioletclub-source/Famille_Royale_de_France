@@ -1,3 +1,5 @@
+/* --- STYLE GLOBAL --- */
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -22,41 +24,46 @@ nav a {
     padding: 30px 40px;
 }
 
+/* --- ARBRE GÉNÉALOGIQUE MODULAIRE --- */
+
 .tree {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 60px;
+    gap: 80px; /* espace entre les générations */
 }
 
-/* Bloc famille (parents + enfants) */
+/* Unité familiale : parents + enfants */
 .family-unit {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-/* Parents */
+/* Parents (couple) */
 .parents {
     display: flex;
     gap: 40px;
+    position: relative;
 }
 
-/* Enfants */
+/* Enfants d’un couple */
 .children {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 25px;
+    position: relative;
 }
 
+/* Liste des enfants */
 .child-list {
     display: flex;
     gap: 40px;
     margin-top: 20px;
 }
 
-/* Personne */
+/* Carte d’une personne */
 .person {
     background: #ffffff;
     border: 2px solid #002f6c;
@@ -66,18 +73,34 @@ nav a {
     min-width: 180px;
 }
 
-/* Traits */
+/* --- TRAITS --- */
+
 .line {
     background: #002f6c;
 }
 
+/* Trait vertical descendant du couple */
 .vertical {
     width: 4px;
     height: 40px;
     margin-top: 10px;
 }
 
+/* Trait horizontal reliant les enfants */
 .horizontal {
     height: 4px;
     width: 100%;
+    max-width: 400px;
+}
+
+/* --- ALIGNEMENT AUTOMATIQUE --- */
+
+/* Centre les enfants sous le couple */
+.children .child-list {
+    justify-content: center;
+}
+
+/* Permet d’ajouter plusieurs groupes d’enfants sans casser l’arbre */
+.children + .children {
+    margin-top: 40px;
 }
