@@ -29,7 +29,22 @@ nav a {
     margin-top: 40px;
 }
 
-.box {
+/* Une génération = une ligne horizontale */
+.generation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+/* Couple */
+.couple {
+    display: flex;
+    gap: 40px;
+}
+
+/* Personne */
+.person {
     background: #ffffff;
     border: 2px solid #002f6c;
     padding: 12px 18px;
@@ -39,11 +54,7 @@ nav a {
     min-width: 180px;
 }
 
-.couple {
-    display: flex;
-    gap: 40px;
-}
-
+/* Traits */
 .line {
     background: #002f6c;
 }
@@ -51,26 +62,18 @@ nav a {
 .vertical {
     width: 4px;
     height: 40px;
+    margin-top: 10px;
 }
 
 .horizontal {
     height: 4px;
-    width: 100%;
+    width: 80%;
+    margin-bottom: 20px;
 }
 
-.children {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.child-connector {
-    width: 60%;
-}
-
-.child-list {
+/* Liste des enfants */
+.person-list {
     display: flex;
     justify-content: center;
     gap: 40px;
-    margin-top: 20px;
 }
